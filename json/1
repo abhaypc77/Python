@@ -1,0 +1,80 @@
+#!/bin/python
+
+
+
+
+class jsonParser():
+  def __init__(self, json):
+    self.json = json
+    self.jsonDict = dict()
+    self.curidx = 0
+    self.endidx = len(json)
+    self.parseJson(json)
+
+  
+
+  def parseJson(self, json):
+    if self.json[curidx] == '{':
+      curidx += 1 
+      self.parseJsonObj()
+ 
+  def remSpace(self):
+    while true:
+      if self.json[curidx] == ' ' or self.json[curidx] == '\t' or self.json[curidx] == '\n':
+        curidx += 1
+        continue
+      else
+        return
+
+  def parseJsonObj(self):
+    self.remSpace()
+    if self.json[curidx] != '\"':
+      print 'Error in parsing'
+      return
+    curidx += 1
+
+    objKey = self.getObjKey()
+    self.remSpace()
+    if self.json[curidx] != ':':
+      print 'Error in parsing'
+      return
+   
+    curidx += 1
+    self.remSpace()
+
+    if self.json[curidx] == '{':
+      self.jsonDict[objKey] = dict()
+      parseJsonObj()
+
+    else:
+      objValue = getObjValue()
+
+    self.jsonDict[objKey] = objValue
+    
+    self.remSpace()
+    
+
+     
+def getObjKey(self):
+  objKeyStr = self.json[curidx:self.json[curidx].find('\"')]
+  print 'objKeyStr = ', objKeyStr
+  curidx += len(objStr)    
+  return objKeyStr
+
+def getObjValue(self):
+  objKeyValue = self.json[curidx:self.json[curidx].find('}')]
+  print 'objKeyValue = ', objKeyValue
+  curidx += len(objStr)    
+  return objKeyStr
+
+
+
+def main():
+  with open('example1.json', 'r') as fobj:
+    json = fobj.readlines()
+
+  parser = jsonParser(json)
+  
+
+if __name__ == '__main__':
+  main()

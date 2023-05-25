@@ -1,0 +1,3 @@
+Inside Main Method.
+Namespace(debug=0, input='abc', log=None, output=None)
+Unsorted File = abc, Sorted File = abc.sorted, Debug Flag = 0, Log file = None

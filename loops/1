@@ -1,0 +1,13 @@
+#!/bin/python
+
+
+for num in range(3, 50):
+  i = 2
+  while i <= num:
+    if num % i == 0:
+      break;
+    else:
+      i++
+  
+  if i == num:
+    print num
